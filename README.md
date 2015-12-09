@@ -1,2 +1,2 @@
-# Color-Picker
-Color Picker
+# Color Picker:  
+
