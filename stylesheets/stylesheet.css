@@ -424,12 +424,13 @@ table {
 
 td {
   padding: 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #bdbdbd;
 }
 
 th {
   padding: 15px;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #bdbdbd;
+  border-right: 2px dotted #bdbdbd;
   text-align: center;
   background-color: #757575;
   color: white;
@@ -437,7 +438,7 @@ th {
 
 tr:hover {background-color: #F5F5F5}
 
-tr:nth-child(even){background-color: #ddd}
+tr:nth-child(even) {background-color: #ddd}
 
 /* LAYOUT STYLES */
 body {
@@ -603,25 +604,7 @@ hr {
 table {
   border-spacing: 0;
   border-collapse: collapse;
-  width: 100%;
 }
-
-td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  padding: 15px;
-  border-bottom: 2px solid #ddd;
-  text-align: center;
-  background-color: #757575;
-  color: white;
-}
-
-tr:hover {background-color: #F5F5F5}
-
-tr:nth-child(even) {background-color: #ddd}
 
 form {
   padding: 20px;
