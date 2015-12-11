@@ -1,79 +1,264 @@
 <!DOCTYPE html>
-<html><head>
-    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'">
-    <title>Site not found · GitHub Pages</title>
-    <style type="text/css" media="screen">
-      body {
-        background-color: #f1f1f1;
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      }
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-      .container { margin: 50px auto 40px auto; width: 600px; text-align: center; }
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-      a { color: #4183c4; text-decoration: none; }
-      a:hover { text-decoration: underline; }
-
-      h1 { width: 800px; position:relative; left: -100px; letter-spacing: -1px; line-height: 60px; font-size: 60px; font-weight: 100; margin: 0px 0 50px 0; text-shadow: 0 1px 0 #fff; }
-      p { color: rgba(0, 0, 0, 0.5); margin: 20px 0; line-height: 1.6; }
-
-      ul { list-style: none; margin: 25px 0; padding: 0; }
-      li { display: table-cell; font-weight: bold; width: 1%; }
-
-      .logo { display: inline-block; margin-top: 35px; }
-      .logo-img-2x { display: none; }
-      @media
-      only screen and (-webkit-min-device-pixel-ratio: 2),
-      only screen and (   min--moz-device-pixel-ratio: 2),
-      only screen and (     -o-min-device-pixel-ratio: 2/1),
-      only screen and (        min-device-pixel-ratio: 2),
-      only screen and (                min-resolution: 192dpi),
-      only screen and (                min-resolution: 2dppx) {
-        .logo-img-1x { display: none; }
-        .logo-img-2x { display: inline-block; }
-      }
-
-      #suggestions {
-        margin-top: 35px;
-        color: #ccc;
-      }
-      #suggestions a {
-        color: #666666;
-        font-weight: 200;
-        font-size: 14px;
-        margin: 0 10px;
-      }
-
-    </style>
+    <title>Color Picker by KaliNuska</title>
   </head>
+
   <body>
-
-    <div class="container">
-
-      <h1>404</h1>
-      <p><strong>There isn't a GitHub Pages site here.</strong></p>
-
-      <p>
-        If you're trying to publish one,
-        <a href="https://help.github.com/pages/">read the full documentation</a>
-        to learn how to set up <strong>GitHub Pages</strong>
-        for your repository, organization, or user account.
-      </p>
-
-      <div id="suggestions">
-        <a href="https://status.github.com/">GitHub Status</a> —
-        <a href="https://twitter.com/githubstatus">@githubstatus</a>
+    <header>
+      <div class="inner">
+        <h1>Color Picker</h1>
+        <h2>Color Picker - [Javier Pacheco]</h2>
+        <a href="https://github.com/KaliNuska/Color-Picker" class="button"><small>View project on</small> GitHub</a>
       </div>
+    </header>
 
-      <a href="http://kalinuska.github.io/" class="logo logo-img-1x">
-        <img title="" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFMTZCRDY3REIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFMTZCRDY3RUIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdCQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjdDQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SM9MCAAAA+5JREFUeNrEV11Ik1EY3s4+ddOp29Q5b0opCgKFsoKoi5Kg6CIhuwi6zLJLoYLopq4qsKKgi4i6CYIoU/q5iDAKs6syoS76IRWtyJ+p7cdt7sf1PGOD+e0c3dygAx/67ZzzPM95/877GYdHRg3ZjMXFxepQKNS6sLCwJxqNNuFpiMfjVs4ZjUa/pmmjeD6VlJS8NpvNT4QQ7mxwjSsJiEQim/1+/9lgMHgIr5ohuxG1WCw9Vqv1clFR0dCqBODElV6v90ogEDjGdYbVjXhpaendioqK07CIR7ZAqE49PT09BPL2PMgTByQGsYiZlQD4uMXtdr+JxWINhgINYhGT2MsKgMrm2dnZXgRXhaHAg5jEJodUAHxux4LudHJE9RdEdA+i3Juz7bGHe4mhE9FNrgwBCLirMFV9Okh5eflFh8PR5nK5nDabrR2BNJlKO0T35+Li4n4+/J+/JQCxhmu5h3uJoXNHPbmWZAHMshWB8l5/ipqammaAf0zPDDx1ONV3vurdidqwAQL+pEc8sLcAe1CCvQ3YHxIW8Pl85xSWNC1hADDIv0rIE/o4J0k3kww4xSlwIhcq3EFFOm7KN/hUGOQkt0CFa5WpNJlMvxBEz/IVQAxg/ZRZl9wiHA63yDYieM7DnLP5CiAGsC7I5sgtYKJGWe2A8seFqgFJrJjEPY1Cn3pJ8/9W1e5VWsFDTEmFrBcoDhZJEQkXuhICMyKpjhahqN21hRYATKfUOlDmkygrR4o4C0VOLGJKrOITKB4jijzdXygBKixyC5TDQdnk/Pz8qRw6oOWGlsTKGOQW6OH6FBWsyePxdOXLTgxiyebILZCjz+GLgMIKnXNzc49YMlcRdHXcSwxFVgTInQhC9G33UhNoJLuqq6t345p9y3eUy8OTk5PjAHuI9uo4b07FBaOhsu0A4Unc+T1TU1Nj3KsSSE5yJ65jqF2DDd8QqWYmAZrIM2VlZTdnZmb6AbpdV9V6ec9znf5Q7HjYumdRE0JOp3MjitO4SFa+cZz8Umqe3TCbSLvdfkR/kWDdNQl5InuTcysOcpFT35ZrbBxx4p3JAHlZVVW1D/634VRt+FvLBgK/v5LV9WS+10xMTEwtRw7XvqOL+e2Q8V3AYIOIAXQ26/heWVnZCVfcyKHg2CBgTpmPmjYM8l24GyaUHyaIh7XwfR9ErE8qHoDfn2LTNAVC0HX6MFcBIP8Bi+6F6cdW/DICkANRfx99fEYFQ7Nph5i/uQiA214gno7K+guhaiKg9gC62+M8eR7XsBsYJ4ilam60Fb7r7uAj8wFyuwM1oIOWgfmDy6RXEEQzJMPe23DXrVS7rtyD3Df8z/FPgAEAzWU5Ku59ZAUAAAAASUVORK5CYII=" height="32" width="32">
-      </a>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="color-picker" class="anchor" href="#color-picker" aria-hidden="true"><span class="octicon octicon-link"></span></a>Color Picker</h1>
 
-      <a href="http://kalinuska.github.io/" class="logo logo-img-2x">
-        <img title="" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEQUM1QkUxRUI0MUMxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEQUM1QkUxRkI0MUMxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdGQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjgwQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+hfPRaQAAB6lJREFUeNrsW2mM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" height="32" width="32">
-      </a>
+<p><strong>Diseña un producto o servicio que sea vendible en una pequeña empresa de jóvenes emprendedores. Realiza una memoria descriptiva en la que se desarrollen los siguientes apartados</strong>:</p>
+
+<blockquote>
+<ol>
+<li><p>Descripción del producto. Aplicaciones.</p></li>
+<li><p>Esquema del prototipo.</p></li>
+<li><p>Materias primas necesarias para su construcción.</p></li>
+<li>
+<p>Lanzamiento del producto:</p>
+
+<ol>
+<li><p>Nombre del producto.</p></li>
+<li><p>Perfil del consumidor</p></li>
+<li><p>Análisis de mercado. Demanda.</p></li>
+<li><p>Campaña de marketing. medios de promoción, eslogan...</p></li>
+</ol>
+</li>
+<li><p>Coste de la primera tirada: coste de la producción de una serie (recursos materiales y humanos) y coste de la publicidad.</p></li>
+<li><p>Precio del producto en el mercado.</p></li>
+</ol>
+</blockquote>
+
+<hr>
+
+<h1>
+<a id="memoria-descriptiva-del-producto-color-picker" class="anchor" href="#memoria-descriptiva-del-producto-color-picker" aria-hidden="true"><span class="octicon octicon-link"></span></a>Memoria descriptiva del producto <strong><em>Color Picker</em></strong>
+</h1>
+
+<h2>
+<a id="descripción-del-producto-y-aplicaciones" class="anchor" href="#descripci%C3%B3n-del-producto-y-aplicaciones" aria-hidden="true"><span class="octicon octicon-link"></span></a>Descripción del Producto y Aplicaciones:</h2>
+
+<p>Este producto, denominado <strong><em>Color Picker</em></strong>, se trata de una herramienta novedosa con forma de bolígrafo que captura el color de la superficie en la que se sitúe y lo envía como código hexadecimal, decimal o RGB al usuario. Tiene dos aplicaciones esenciales:</p>
+
+<blockquote>
+<ol>
+<li><p>Permite a diseñadores gráficos utilizar colores que se obtienen directamente del mundo físico, por lo que dota a sus creaciones de mayor autencicidad y fidelidad.</p></li>
+<li><p>Se puede emplear conjuntamente con aplicaciones que adapten los colores para usuarios daltónicos para así permitirles entender qué colores tiene el ambiente que les rodea.</p></li>
+</ol>
+</blockquote>
+
+<p>Por el momento solamente ha sido diseñado un modelo de <strong><em>Color Picker</em></strong>: el modelo <em>Pen</em>. Gracias a su reducido tamaño y a su ligereza, este modelo resulta muy cómodo de transportar y emplear en cualquier ocasión.</p>
+
+<p><strong><em>Color Picker</em></strong> se basa en el sistema de transmisión de información inalámbrico <a href="http://www.bluetooth.com/"><code>Bluetooth® v4.0</code></a>. <strong><em>Color Picker</em></strong> transmitirá los datos de los colores que captures por medio de una aplicación disponible para ordenadores Windows®, MacOS® y dispositivos móviles iOS® y Android®.</p>
+
+<p>En el ámbito de marketing <strong><em>Color Picker</em></strong> es un bien, tangible e interactivo que constituye la marca comercial propia: <code>Color Picker</code>.</p>
+
+<h2>
+<a id="esquema-del-prototipo" class="anchor" href="#esquema-del-prototipo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Esquema del Prototipo:</h2>
+
+<p>El modelo <em>Pen</em> de <strong><em>Color Picker</em></strong> está compuesto de seis piezas sólidas de origen plástico, un circuito integrado, un lector de luz y color y cables conductores de la electricidad. Está formado por un cuerpo de sección cilíndrica de <code>133 mm</code> de altura y con bases de <code>30 mm</code> de diámetro. Tiene un diseño totalmente ergonómico puesto que está dotado de partes de goma blanda por las que se agarra mejor el dispositivo. En su interior contiene un recipiente para 2 pilas <code>AA</code> al que se accede desenroscando la base del <strong><em>Color Picker</em></strong>. Se compone de otra rosca que posibilita el acceso al lector de color en caso de que estuviese deteriorado y hubiese que reemplazarlo por otro.
+En la siguiente colección de imágenes se representan todas las partes del <strong><em>Color Picker</em></strong>:</p>
+
+
+
+<hr>
+
+<p>En el siguiente contenido se puede navegar por la perspectiva tridimensional esquematizada del dispositivo con una sección y sin ella:</p>
+
+
+
+<h2>
+<a id="materias-primas-necesarias-para-su-construcción" class="anchor" href="#materias-primas-necesarias-para-su-construcci%C3%B3n" aria-hidden="true"><span class="octicon octicon-link"></span></a>Materias primas necesarias para su construcción:</h2>
+
+<p>El modelo <em>Pen</em> de <strong><em>Color Picker</em></strong> está construido partiendo de la siguiente relación de materiales:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Material</th>
+<th align="left">Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Goma blanda color gris</td>
+<td align="left">Unión de la punta con el cuerpo del dispositivo. Facilita el agarre del objeto.</td>
+</tr>
+<tr>
+<td align="left">Plástico rígido <code>PS</code>
+</td>
+<td align="left">Cuerpo, punta y base del dispositivo.</td>
+</tr>
+<tr>
+<td align="left">Lector de luz y color</td>
+<td align="left">En la punta, capta el color de un objeto físico.</td>
+</tr>
+<tr>
+<td align="left">Circuito Integrado</td>
+<td align="left">Realiza todas las tareas relacionadas con el procesamiento y envío del color al usuario</td>
+</tr>
+<tr>
+<td align="left">Portapilas</td>
+<td align="left">Proporciona la alimentción energética por medio de dos pilas <code>AA</code>
+</td>
+</tr>
+<tr>
+<td align="left">Muelles</td>
+<td align="left">Conectan los polos de las pilas</td>
+</tr>
+<tr>
+<td align="left">Botón de goma y plástico</td>
+<td align="left">Controla el circuito interno del <strong><em>Color Picker</em></strong>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="lanzamiento-del-producto" class="anchor" href="#lanzamiento-del-producto" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lanzamiento del producto:</h2>
+
+<h3>
+<a id="--nombre-del-producto" class="anchor" href="#--nombre-del-producto" aria-hidden="true"><span class="octicon octicon-link"></span></a>- Nombre del producto:</h3>
+
+<p>El producto se llama <strong><em>Color Picker</em></strong> y actualmente tiene un único modelo destinado para la venta al público, el <em>Pen</em>. Tiene un coste total de <code>55,99 €</code> al consumidor, en los puestos de venta reconocidos.</p>
+
+<h3>
+<a id="--perfil-del-consumidor" class="anchor" href="#--perfil-del-consumidor" aria-hidden="true"><span class="octicon octicon-link"></span></a>- Perfil del consumidor:</h3>
+
+<p><strong><em>Color Picker</em></strong> está especialmente enfocado para que lo utilicen personas de múltiples ámbitos. Desde diseñadores gráficos digitales, hasta arquitectos; estudiantes de diseño, particulares, aficionados y editores de todos los campos. También ha sido comprobada su eficacia en cuanto a herramienta de apoyo a personas con daltonismo y otras discapacidades visuales leves, por lo que muchas de estas personas, si no todas, estarían interesados en este producto.</p>
+
+<h3>
+<a id="--análisis-del-mercado-demanda" class="anchor" href="#--an%C3%A1lisis-del-mercado-demanda" aria-hidden="true"><span class="octicon octicon-link"></span></a>- Análisis del mercado. Demanda:</h3>
+
+<p><strong><em>Color Picker</em></strong> es una novedad hoy en día y pocos productos pueden ponerse a su altura en cuanto a utilidad, sencillez, eficacia y productividad, así como su relación calidad precio.
+Debido a la baja presencia de competencia, la popularidad que está obteniendo <strong><em>Color Picker</em></strong> en las redes sociales y el asumible precio que tiene, recibirá una alta demanda nada más salir a la venta, porque el cosumidor estará dispuesto a comprar el producto al precio establecido en el mercado (<code>55,99 €</code>). Posteriormente se cree que se reducirá hasta el punto de compensar el descenso provocado por la aparición de nuevas alternativas a <strong><em>Color Picker</em></strong> <em>Pen</em>.</p>
+
+<p>Al producto <strong><em>Color Picker</em></strong> se le estima una tasa de éxito en el mercado del orden del <code>83%</code>.</p>
+
+<h3>
+<a id="--campaña-de-marketing-medios-de-promoción-eslogan" class="anchor" href="#--campa%C3%B1a-de-marketing-medios-de-promoci%C3%B3n-eslogan" aria-hidden="true"><span class="octicon octicon-link"></span></a>- Campaña de marketing: medios de promoción, eslogan...</h3>
+
+<p>El producto <strong><em>Color Picker</em></strong> está siendo anunciado en la redes sociales, en las que adquiere una enorme popularidad entre los usuarios y en revistas y publicaciones especializadas en arte y diseño. Está captando la atención de los consumidores por medio del eslogan que tiene <strong><em>Color Picker</em></strong>:</p>
+
+<blockquote>
+<p>Da el color que le corresponde al mundo a tu mundo.</p>
+</blockquote>
+
+<p>Se está invirtiendo también en anunciar el producto en GoogleAds y en otras empresas de gestión de publicidad.</p>
+
+<h2>
+<a id="coste-de-la-primera-tirada" class="anchor" href="#coste-de-la-primera-tirada" aria-hidden="true"><span class="octicon octicon-link"></span></a>Coste de la primera tirada:</h2>
+
+<blockquote>
+<p><strong>Coste de la producción de una serie (recursos materiales y humanos) y coste de la publicidad.</strong></p>
+</blockquote>
+
+<p>El coste por unidad detallado de la producción de la primera tirada de <strong><em>Color Picker</em></strong> viene determinado por:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Concepto</th>
+<th align="right">Coste <em>por unidad</em>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Diseño del producto</td>
+<td align="right"><code>5 €</code></td>
+</tr>
+<tr>
+<td align="left">Elaboración industrializada del producto</td>
+<td align="right"><code>10,2321 €</code></td>
+</tr>
+<tr>
+<td align="left">Primera campaña de promoción</td>
+<td align="right"><code>15 €</code></td>
+</tr>
+<tr>
+<td align="left">Segunda campaña de promoción</td>
+<td align="right"><code>12 €</code></td>
+</tr>
+<tr>
+<td align="left">Venta del producto</td>
+<td align="right"><code>2 €</code></td>
+</tr>
+<tr>
+<td align="left">Impuestos aplicables</td>
+<td align="right"><code>11.7579 €</code></td>
+</tr>
+<tr>
+<td align="left"><strong>TOTAL</strong></td>
+<td align="right"><code>55.99 €</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>Fabricando un total de <code>400</code> unidades el coste alcanza los <code>22396 €</code>.</p>
+
+<h2>
+<a id="precio-del-producto-en-el-mercado" class="anchor" href="#precio-del-producto-en-el-mercado" aria-hidden="true"><span class="octicon octicon-link"></span></a>Precio del producto en el mercado:</h2>
+
+<p>El precio del producto queda establecido por el coste de producción total, en el que se incluyen un <code>10%</code> de ganancias. Resulta en un total de <code>55.99 €</code> de los que la marca <strong><em>Color Picker</em></strong> obtiene <code>5.6 €</code> por cada unidad con el fin de compensar los costes de gestión de la nueva empresa.</p>
+
+<hr>
+
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" title="This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License."><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License."></a><br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" title="This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License."><em>This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</em></a></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/KaliNuska/Color-Picker/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/KaliNuska/Color-Picker/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/KaliNuska/Color-Picker"></a> is maintained by <a href="https://github.com/KaliNuska">KaliNuska</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
-  
 
-</body></html>
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-38708683-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
