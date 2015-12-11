@@ -53,6 +53,7 @@ En el siguiente contenido se puede navegar por la perspectiva tridimensional esq
 
 ## Materias primas necesarias para su construcción:
 El modelo *Pen* de ***Color Picker*** está construido partiendo de la siguiente relación de materiales:
+
 | Material | Función |
 |:---------|:--------|
 | Goma blanda color gris | Unión de la punta con el cuerpo del dispositivo. Facilita el agarre del objeto. |
@@ -86,6 +87,7 @@ Se está invirtiendo también en anunciar el producto en GoogleAds y en otras em
 > **Coste de la producción de una serie (recursos materiales y humanos) y coste de la publicidad.**
 
 El coste por unidad detallado de la producción de la primera tirada de ***Color Picker*** viene determinado por:
+
 | Concepto | Coste *por unidad* |
 |:---------|------:|
 | Diseño del producto | `5 €` |
