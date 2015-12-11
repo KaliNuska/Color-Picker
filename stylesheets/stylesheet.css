@@ -590,15 +590,18 @@ hr {
 table {
   width: 100%;
   border: 1px solid #ebebeb;
+  background-color: #e9e9e9;
 }
 
 th {
   font-weight: 500;
+  text-align: center;
+  border: 2px solid #ebebeb;
 }
 
 td {
   font-weight: 300;
-  text-align: center;
+  text-align: left;
   border: 1px solid #ebebeb;
 }
 
