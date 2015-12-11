@@ -426,15 +426,19 @@ td {
   padding: 10px;
   border-bottom: 1px solid #bdbdbd;
   border-right: 1px dotted #bdbdbd;
+  border-left: 1px dotted #bdbdbd;
 }
 
 th {
   padding: 15px;
   border-bottom: 2px solid #bdbdbd;
   border-right: 2px dotted #bdbdbd;
+  border-left: 2px dotted #bdbdbd;
   text-align: center;
   background-color: #757575;
   color: white;
+  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+  font-weight: bold;
 }
 
 tr:hover {background-color: #F5F5F5}
