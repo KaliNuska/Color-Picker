@@ -1,5 +1,6 @@
 ## Reparto de Tareas:
 La siguiente tabla muestra la relación de tareas y la persona que las ha de realizar:
+
 Categoría|JA|ER|DA|JU
 ---:|:---|:---|:---|:---
 **Empresa**|Historia®, logotipo®, pagos® y certificados®.|Patrocinadores de la empresa® *(Maped, Alpino, A3Media, IKEA, Pilot, Stabilo...)*.|Localización *(Sede de la empresa)*.|Descripción® y organización jerárquica®.
