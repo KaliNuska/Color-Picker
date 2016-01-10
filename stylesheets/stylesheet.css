@@ -60,6 +60,7 @@ b,
 strong {
   font-weight: bold;
 }
+
 b:hover,
 strong:hover {
   letter-spacing: 0.2px;
