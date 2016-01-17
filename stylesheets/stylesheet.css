@@ -345,6 +345,29 @@ header img:hover {
   max-width: 100%;
 }
 
+a.button {
+  height: 60px;
+  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+  line-height: 1.2;
+  text-align: center;
+}
+
+a.button small {
+  display: block;
+  font-size: 0.5em;
+}
+
+body a.button {
+  display: block;
+  width: 97%;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  background: transparent url(../images/dowload-button.png) no-repeat center top;
+}
+
 code, pre {
   margin-bottom: 30px;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
