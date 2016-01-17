@@ -63,7 +63,7 @@ strong {
 
 b:hover,
 strong:hover {
-  letter-spacing: 0.2px;
+  letter-spacing: 0.1px;
 }
 
 dfn {
@@ -379,13 +379,18 @@ code, pre {
 code {
   padding: 0 3px;
   background-color: #f5f5f5;
-  border: solid 1px #e0e0e0;
+  border: solid 1px #bdbdbd;
 }
 
 code:hover {
-  background-color: #e0e0e0;
-  padding: 0 5px;
+  background-color: #bdbdbd;
+  padding: 0 3px;
   font-weight: bold;
+}
+
+blockquote code:hover {
+  letter-spacing: 0px;
+  font-weight: normal;
 }
 
 pre {
