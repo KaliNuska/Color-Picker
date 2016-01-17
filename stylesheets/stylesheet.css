@@ -346,8 +346,9 @@ header img:hover {
 }
 
 a.button {
-  height: 60px;
+  height: 78px;
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+  color: #fff;
   line-height: 1.2;
   text-align: center;
 }
@@ -365,7 +366,7 @@ body a.button {
   margin-top: 20px;
   margin-bottom: 20px;
   font-size: 2.5em;
-  background: transparent url(../images/dowload-button.png) no-repeat center top;
+  background: transparent url(https://github.com/KaliNuska/Color-Picker/blob/gh-pages/images/download-button.png?raw=true) no-repeat center top;
 }
 
 code, pre {
