@@ -409,6 +409,13 @@ pre code {
   border: none;
 }
 
+pre code:hover {
+  background-color: #fff;
+  padding: 0;
+  border: none;
+  color: #2879d0;
+}
+
 ul, ol, dl {
   margin-bottom: 20px;
 }
