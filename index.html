@@ -234,7 +234,72 @@
               <a id="prototipos" class="anchor" href="#prototipos" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prototipos
             </h2>
             
-            
+            <pre>
+              <code>
+/*
+  Color Picker open source code.
+  http://kalinuska.github.io/Color-Picker/
+*/
+
+const int buttonPin = 2;  //define a pin for pushbutton
+const int bluePin = A0;   //define a pin for blue resistor
+const int greenPin = A1;  //define a pin for green resistor
+const int redPin = A2;    //define a pin for red resistor
+const int ledPin = 13;    //define a pin for LED
+int t = 0;                //time variable
+int buttonState = 0;      //pushbutton interaction
+int blueValue = 0;       //color value
+int greenValue = 0;         //color value
+int redValue = 0;         //color value
+
+void setup() {
+  Serial.begin(9600);  //Begin serial communcation
+  
+  pinMode( ledPin, OUTPUT );
+  pinMode( buttonPin, INPUT );
+}
+
+void loop() {
+  buttonState = digitalRead(buttonPin);
+  if (buttonState == HIGH) {  //pressed button
+    digitalWrite(ledPin, HIGH);
+    
+    blueValue = analogRead(bluePin);
+    greenValue = analogRead(greenPin);
+    redValue = analogRead(redPin);
+    
+    blueValue = map(blueValue, 54, 974, 0, 255);    //map colorValue
+    greenValue = map(greenValue, 54, 974, 0, 255);  //map colorValue
+    redValue = map(redValue, 54, 974, 0, 255);      //map colorValue
+    
+    Serial.print("Blue");   //print header
+    Serial.print("\t");     //print tab
+    Serial.print("Green");  //print header
+    Serial.print("\t");     //print tab
+    Serial.print("Red");    //print header
+    
+    Serial.println("");   //new line
+    
+    Serial.print(blueValue);    //print resistor value
+    Serial.print("\t");                   //print tab
+    Serial.print(greenValue);   //print resistor value
+    Serial.print("\t");                   //print tab
+    Serial.print(redValue);     //print resistor value
+    
+    Serial.println("");   //new line
+    
+    delay(100);   //100ms delay
+    
+    blueValue = 0;    //reset colorValue
+    greenValue = 0;   //reset colorValue
+    redValue = 0;     //reset colorValue
+  }
+  else {  //released button
+    digitalWrite(ledPin, LOW);
+  }
+}
+              </code>
+            </pre>
             
             <h2>
               <a id="normalizacion" class="anchor" href="#normalizacion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Normalización
