@@ -413,7 +413,9 @@ pre code:hover {
   background-color: #fff;
   padding: 0;
   border: none;
-  color: #2879d0;
+  
+  font-weight: normal;
+  
 }
 
 ul, ol, dl {
