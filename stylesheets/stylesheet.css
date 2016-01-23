@@ -590,7 +590,7 @@ blockquote:hover {
 ul {
   list-style-position: inside;
   list-style: disc;
-  padding-left: 20px;
+  padding-left: 3px;
 }
 
 ol {
