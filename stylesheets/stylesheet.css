@@ -587,6 +587,15 @@ blockquote:hover {
   background-color: #e0e0e0;
 }
 
+blockquote table {
+  margin-bottom: 20px;
+  margin-right: 0px;
+}
+
+blockquote tr:nth-child(n) {
+  background-color: #fdfdfd;
+}
+
 ul {
   list-style-position: inside;
   list-style: disc;
