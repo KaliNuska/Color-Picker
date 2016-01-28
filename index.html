@@ -259,6 +259,9 @@ const int bluePin = A0;                             //define a pin for blue resi
 const int greenPin = A1;                            //define a pin for green resistor
 const int redPin = A2;                              //define a pin for red resistor
 const int ledPin = 13;                              //define a pin for LED
+const int redRGBPin = 9;                            //define a pin for red RGB
+const int greenRGBPin = 10;                         //define a pin for green RGB
+const int blueRGBPin = 11;                          //define a pin for blue RGB
 int t = 0;                                          //time variable
 int buttonState = 0;                                //pushbutton interaction
 int blueValue = 0;                                  //color value
@@ -270,6 +273,9 @@ void setup() {                                      //void setup open
   
   pinMode( ledPin, OUTPUT );                        //define pin type
   pinMode( buttonPin, INPUT );                      //define pin type
+  pinMode( redRGBPin, OUTPUT );                     //define pin type
+  pinMode( greenRGBPin, OUTPUT );                   //define pin type
+  pinMode( blueRGBPin, OUTPUT );                    //define pin type
 }                                                   //void setup close
 
 void loop() {                                       //void loop open
@@ -277,41 +283,68 @@ void loop() {                                       //void loop open
   if (buttonState == HIGH) {                        //pressed button
     digitalWrite(ledPin, HIGH);                     //LED on
     
+    delay(100);                                     //delay 100ms
+    
     blueValue = analogRead(bluePin);                //read color values from analogRead
     greenValue = analogRead(greenPin);              //read color values from analogRead
     redValue = analogRead(redPin);                  //read color values from analogRead
     
-    blueValue = map(blueValue, 54, 974, 0, 255);    //map colorValue
-    greenValue = map(greenValue, 54, 974, 0, 255);  //map colorValue
-    redValue = map(redValue, 54, 974, 0, 255);      //map colorValue
+    blueValue = map(blueValue, 13, 535, 0, 255);    //map colorValue
+    greenValue = map(greenValue, 1, 330, 0, 255);   //map colorValue
+    redValue = map(redValue, 10, 571, 0, 255);      //map colorValue
     
     Serial.print("Blue");                           //print header
     Serial.print("\t");                             //print tab
     Serial.print("Green");                          //print header
     Serial.print("\t");                             //print tab
     Serial.print("Red");                            //print header
+    Serial.print("\t");                             //print tab
+    Serial.print("HEX-B");                          //print HEXheader
+    Serial.print("\t");                             //print tab
+    Serial.print("HEX-G");                          //print HEXheader
+    Serial.print("\t");                             //print tab
+    Serial.print("HEX-R");                          //print HEXheader
     
     Serial.println("");                             //new line
     
-    Serial.print(blueValue);                        //print resistor value
+    Serial.print(abs(blueValue));                   //print resistor value
     Serial.print("\t");                             //print tab
-    Serial.print(greenValue);                       //print resistor value
+    Serial.print(abs(greenValue));                  //print resistor value
     Serial.print("\t");                             //print tab
-    Serial.print(redValue);                         //print resistor value
+    Serial.print(abs(redValue));                    //print resistor value
+    Serial.print("\t");                             //print tab
+    Serial.print(abs(blueValue), HEX);              //print HEXresistor value
+    Serial.print("\t");                             //print tab
+    Serial.print(abs(greenValue), HEX);             //print HEXresistor value
+    Serial.print("\t");                             //print tab
+    Serial.print(abs(redValue), HEX);               //print HEXresistor value
     
     Serial.println("");                             //new line
     
-    delay(10);                                      //10ms delay
+    delay(100);                                     //10ms delay
+    
+    setColor(abs(redValue),abs(greenValue),abs(blueValue));
     
     blueValue = 0;                                  //reset colorValue
     greenValue = 0;                                 //reset colorValue
     redValue = 0;                                   //reset colorValue
   }
   else {                                            //released button
+    delay(100);                                     //delay 100ms
     digitalWrite(ledPin, LOW);                      //LED off
   }
   delay(20);                                        //smoother delay
 }                                                   //void loop close
+
+void setColor(int r, int g, int b) {                //void setColor open
+  analogWrite(redRGBPin,r);                         //set RGB color
+  analogWrite(greenRGBPin,g);                       //set RGB color
+  analogWrite(blueRGBPin,b);                        //set RGB color
+  delay(800);                                       //delay 800ms
+  analogWrite(redRGBPin,0);                         //reset RGB color
+  analogWrite(greenRGBPin,0);                       //reset RGB color
+  analogWrite(blueRGBPin,0);                        //reset RGB color
+}                                                   //void setColor close
 </code>
 </pre>
             
@@ -379,13 +412,78 @@ void loop() {                                       //void loop open
               <a id="materiales-y-almacenamiento" class="anchor" href="#materiales-y-almacenamiento" aria-hidden="true"><span class="octicon octicon-link"></span></a>Materiales y almacenamiento
             </h2>
             
-            
+            <p>En nuestra empresa, como ya hemos dicho anteriormente, utilizamos en casi su totalidad materiales <strong>reciclados</strong>, y debido a las necesidades planteadas por la internacionalización de los mercados, nuestra empresa (y en general, cualquier otra) necesita que tanto los materiales, como su almacenamiento mantengan los más altos niveles de calidad, pero con una ejecución sencilla y ágil, reduciendo así costos de operación (compra de materias primas, traslados, y almacenamiento previo y posterior a la elaboración del producto, así como su distribución), fidelizando las relaciones con el cliente y garantizando el servicio al consumidor final.<br>El concepto de almacén que anteriormente siempre venia asociado a un espacio dentro de una empresa ha evolucionado, y nosotros hemos optado por centralizar en una empresa externa tanto la recepción de los materiales como la guarda y distribución de nuestro producto final acabado, consiguiendo así <strong>disminuir notablemente el coste de alquiler de nuestra planta al reducir enormemente la superficie que necesitamos</strong>, así como los costes de mantenimiento (electricidad, aire acondicionado, sistema antincendios, mantenimiento en general), además conseguimos garantizar nuestro suministro de materiales de forma continua  y <strong>externalizamos la distribución física del producto elaborado</strong>.<br>Así pues frente a un sistema de almacenamiento convencional, que requiere más espacio, y es el que hubiéramos tenido hacer dentro de nuestras instalaciones, hemos optado por un sistema de <strong>almacenamiento dinámico</strong> en una empresa externa con <strong>estanterías dinámicas</strong> para el almacenaje que utilizan mucha <strong>menos superficie</strong> y salen muy <strong>rentables</strong>, gestionando nosotros los pedidos de los materiales que vamos utilizando (goma, plástico, lectores, circuitos, porta pilas, muelles, cables, material de embalaje, y papel), y <strong>organizando</strong> con la empresa de almacenaje las recepciones y envíos para la producción, y entrega del producto acabado.</p>
             
             <h2>
               <a id="ayudas-y-bonificaciones" class="anchor" href="#ayudas-y-bonificaciones" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ayudas y bonificaciones
             </h2>
             
-            
+            <p>En nuestra empresa estamos concienciados con el <strong>Medio Ambiente</strong>, es por ello por lo que usamos en nuestro productos materiales <strong>reciclados</strong>, y a lo largo de nuestro proceso de producción <strong>generamos muy pocos desechos</strong>, la mayor parte de los cuales volvemos a incorporar al proceso de producción, consiguiendo un elevado porcentaje de <strong>reutilización</strong>, y una minúscula cantidad de desechos finales. Por otra parte todos nuestros embalajes tanto  en la fase de desarrollo como en la de empaquetado del producto final son <strong>biodegradables</strong>.<br>El reciclado de los distintos materiales ofrece numerosas ventajas para nuestra empresa, principalmente ambientales, pero también, sociales y económicas. La compra de materiales <strong>reciclados</strong> ya supone un ahorro económico puesto que son <strong>más baratos</strong> que los no <strong>reciclados</strong> (sin renunciar a la calidad, y aprovechando sus beneficios fiscales), así mismo contribuimos a mantener los recursos y a no contaminar puesto que volvemos a poner este tipo de materiales en circulación. Así, no solo mejoramos la economía, y contribuimos a conservar el medio ambiente, sino que además damos una <strong>buena imagen</strong> ante otras empresas, clientes, empleados y cualquiera que conozca este hecho.<br>Entre los materiales que más reciclamos destacan el papel y el cartón, hemos eliminado casi en su totalidad los plásticos en cualquier proceso de embalaje en nuestra cadena de montaje, y hemos usado un plástico reciclado y reciclable para el grueso de nuestro producto, el resto son cables, y algún otro material también procedentes del reciclado. Lo que hasta ahora no hemos conseguido <strong>reciclados</strong> son los microprocesadores, pero estamos potenciando las actividades de <strong>I+D</strong>, no solo por las subvenciones y ventajas económicas y fiscales que conllevan, sino para conseguir reciclar también el hardware de nuestro producto.</p>
+            <p>Respecto a la contratación de empleados y sus beneficios, hemos de destacar que parte de nuestros empleados son <strong>mujeres con responsabilidades familiares</strong> (según la ley aquellas que tuvieren a su cargo cónyuge, descendientes, ascendientes y demás parientes por consanguinidad o afinidad, hasta el tercer grado inclusive, y, en su caso, por adopción), las cuales conllevan una <strong>subvención</strong>, y <strong>formación profesional gratuita y prioritaria</strong> a cargo del <strong>Instituto Nacional de Empleo</strong>, así como <strong>bonificación</strong> equivalente al <strong>cincuenta por ciento</strong> a la cuota empresarial a la <strong>Seguridad Social</strong>, por trabajador contratado, durante tres años. Y unos cuantos son <strong>trabajadores con discapacidad</strong> de grado igual o superior al <strong>33% reconocido</strong>, cuyos beneficios se detallan a continuación:</p>
+            <blockquote>
+              <ul>
+                <li><p>Subvención de 3.907 euros por cada contrato celebrado a tiempo completo.</p></li>
+                <li><p>Cuando el contrato por tiempo indefinido se concierte a tiempo parcial, la subvención de 3.907 euros se reducirá proporcionalmente a la jornada pactada.</p></li>
+                <li><p>Bonificación de las cuotas empresariales de la Seguridad Social. Si el contrato se celebra a tiempo completo, la empresa tendrá derecho a las siguientes bonificaciones:</p>
+                  <ol>
+                    <li><p>Trabajadores discapacitados sin discapacidad severa:</p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="left">Hombres</th>
+                            <th align="left">Mujeres</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="left">Menores de 45 años 4.500 euros/año</td>
+                            <td align="left">5.350 euros/año</td>
+                          </tr>
+                          <tr>
+                            <td align="left">Mayores de 45 años 5.700 euros/año</td>
+                            <td align="left">5.700 euros/año</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                  </ol>
+                  <ol>
+                    <li><p>Trabajadores discapacitados con discapacidad severa:</p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="left">Hombres</th>
+                            <th align="left">Mujeres</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="left">Menores de 45 años 5.100 euros/año</td>
+                            <td align="left">5.950 euros/año</td>
+                          </tr>
+                          <tr>
+                            <td align="left">Mayores de 45 años 6.300 euros/año</td>
+                            <td align="left">6.300 euros/año</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                  </ol>
+                </li>
+                <li><p>Si la contratación se realiza a tiempo parcial, la cuantía de la bonificación corresponderá a lo establecido en el artículo 2.7 de la Ley 43/2006, de 29 de diciembre, según redacción dada por el artículo 6.Dos de la Ley 27/2009, de 30 de diciembre (B.O.E. de 31 de diciembre).</p></li>
+                <li><p>La empresa, para poder bonificarse en la cuota empresarial, tendrá que cumplir los requisitos establecidos en la Ley 43/2006, de 29 de diciembre (BOE de 30 de diciembre).</p></li>
+                <li><p>Subvención para la adaptación de puestos de trabajo, eliminación de barreras o dotación de medios de protección personal hasta <code>901,52</code> euros.</p></li>
+                <li><p>Deducción de la cuota íntegra del Impuesto de Sociedades en la cantidad de 6.000 euros por cada persona/año de incremento del promedio de la plantilla de trabajadores con discapacidad, contratados por tiempo indefinido, respecto a la plantilla media de trabajadores con discapacidad del ejercicio inmediatamente anterior con dicho tipo de contrato.</p></li>
+              </ul>
+            </blockqoute>
+            <p>Todo esto cumpliendo los siguientes requisitos:</p>
+            <blockquote>
+              <ul>
+                <li><p>Se mantendrá la estabilidad de estos trabajadores por un tiempo mínimo de tres años y-Se presenta por la Empresa acreedora de la subvención del alta del trabajador contratado y justificante de estar al corriente en el pago de sus obligaciones a la Seguridad Social.</p></li>
+                <li><p>Compromiso de mantener el nivel de empleo durante tres años de manera que la plantilla se incremente, al menos, con los trabajadores subvencionados.</p></li>
+                <li><p>Los trabajadores que den derecho a subvención serán incorporados a la Empresa en régimen de contrato indefinido, en caso de despido procedente, serán sustituidos por otros trabajadores con similares características.</p></li>
+              </ul>
+            </blockquote>
             
           <h1>
             <a id="f5-venta" class="anchor" href="#f5-venta" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fase 5 <strong><em>Venta</em></strong>
@@ -438,6 +536,10 @@ void loop() {                                       //void loop open
               <h3>
                 <a id="publicidad" class="anchor" href="#publicidad" aria-hidden="true"><span class="octicon octicon-link"></span></a>Publicidad
               </h3>
+              
+              
+              
+              <iframe width="100%" height="550" src="https://www.youtube.com/embed/kmF-7SzN82A" frameborder="0" allowfullscreen></iframe>
               
               
               
