@@ -330,56 +330,58 @@
   http://kalinuska.github.io/Color-Picker/
 */
 
-const int buttonPin = 2;                            //define a pin for pushbutton
-const int bluePin = A0;                             //define a pin for blue resistor
+#include <LiquidCrystal.h>                          //load LiquidCrystal library
+
+/*
+  Arduino's LiquidCrystal Library with SPI
+  Author:  Juan Hernandez (juanh0238)
+  http://playground.arduino.cc/Main/LiquidCrystal
+*/
+
+const int buttonPin = 13;                           //define a pin for pushbutton
+const int bluePin = A2;                             //define a pin for blue resistor
 const int greenPin = A1;                            //define a pin for green resistor
-const int redPin = A2;                              //define a pin for red resistor
-const int ledPin = 13;                              //define a pin for LED
-const int redRGBPin = 9;                            //define a pin for red RGB
-const int greenRGBPin = 10;                         //define a pin for green RGB
-const int blueRGBPin = 11;                          //define a pin for blue RGB
-int t = 0;                                          //time variable
+const int redPin = A0;                              //define a pin for red resistor
 int buttonState = 0;                                //pushbutton interaction
 int blueValue = 0;                                  //color value
 int greenValue = 0;                                 //color value
 int redValue = 0;                                   //color value
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);              //LCD display pinset (RS, E, DB4, DB5, DB6, DB7)
+String sR, sRn, sRnG, sRnGn, sRnGnB, sRnGnBn;       //string objects that contain values
 
 void setup() {                                      //void setup open
   Serial.begin(9600);                               //begin serial communcation
+  lcd.begin(16, 2);                                 //begin lcd communication (columns & rows)
+  lcd.setCursor(2,0);                               //lcd cursor position
+  lcd.print("Color Picker");                        //lcd message
   
-  pinMode( ledPin, OUTPUT );                        //define pin type
   pinMode( buttonPin, INPUT );                      //define pin type
-  pinMode( redRGBPin, OUTPUT );                     //define pin type
-  pinMode( greenRGBPin, OUTPUT );                   //define pin type
-  pinMode( blueRGBPin, OUTPUT );                    //define pin type
 }                                                   //void setup close
 
 void loop() {                                       //void loop open
   buttonState = digitalRead(buttonPin);             //button interaction
   if (buttonState == HIGH) {                        //pressed button
-    digitalWrite(ledPin, HIGH);                     //LED on
-    
-    delay(100);                                     //delay 100ms
-    
     blueValue = analogRead(bluePin);                //read color values from analogRead
     greenValue = analogRead(greenPin);              //read color values from analogRead
     redValue = analogRead(redPin);                  //read color values from analogRead
     
-    blueValue = map(blueValue, 13, 535, 0, 255);    //map colorValue
-    greenValue = map(greenValue, 1, 330, 0, 255);   //map colorValue
-    redValue = map(redValue, 10, 571, 0, 255);      //map colorValue
-    
+    blueValue = map(blueValue, 1023, 13, 0, 255);   //map colorValue
+    greenValue = map(greenValue, 1023, 13, 0, 255); //map colorValue
+    redValue = map(redValue, 1023, 13, 0, 255);     //map colorValue
+            
     Serial.print("Blue");                           //print header
     Serial.print("\t");                             //print tab
     Serial.print("Green");                          //print header
     Serial.print("\t");                             //print tab
     Serial.print("Red");                            //print header
     Serial.print("\t");                             //print tab
-    Serial.print("HEX-B");                          //print HEXheader
+    Serial.print("HEX-B");                          //print HEX header
     Serial.print("\t");                             //print tab
-    Serial.print("HEX-G");                          //print HEXheader
+    Serial.print("HEX-G");                          //print HEX header
     Serial.print("\t");                             //print tab
-    Serial.print("HEX-R");                          //print HEXheader
+    Serial.print("HEX-R");                          //print HEX header
+    Serial.print("\t");                             //print tab
+    Serial.print("Code");                           //print Code header
     
     Serial.println("");                             //new line
     
@@ -389,38 +391,38 @@ void loop() {                                       //void loop open
     Serial.print("\t");                             //print tab
     Serial.print(abs(redValue));                    //print resistor value
     Serial.print("\t");                             //print tab
-    Serial.print(abs(blueValue), HEX);              //print HEXresistor value
+    Serial.print(abs(blueValue), HEX);              //print HEX resistor value
     Serial.print("\t");                             //print tab
-    Serial.print(abs(greenValue), HEX);             //print HEXresistor value
+    Serial.print(abs(greenValue), HEX);             //print HEX resistor value
     Serial.print("\t");                             //print tab
-    Serial.print(abs(redValue), HEX);               //print HEXresistor value
+    Serial.print(abs(redValue), HEX);               //print HEX resistor value
+    Serial.print("\t");                             //print tab
+    
+    String sR = "R";                                //concatenate String objects
+    String sRn = sR + abs(redValue);                //concatenate String objects
+    String sRnG = sRn + " G";                       //concatenate String objects
+    String sRnGn = sRnG + abs(greenValue);          //concatenate String objects
+    String sRnGnB = sRnGn + " B";                   //concatenate String objects
+    String sRnGnBn = sRnGnB + abs(blueValue);       //concatenate String objects
+    
+    Serial.print(sRnGnBn);                          //print Code value
+    
+    lcd.setCursor(1,1);                             //lcd set cursor position
+    lcd.print(sRnGnBn);                             //lcd display Code value
     
     Serial.println("");                             //new line
     
-    delay(100);                                     //10ms delay
-    
-    setColor(abs(redValue),abs(greenValue),abs(blueValue));
+    delay(30);                                      //30ms delay
     
     blueValue = 0;                                  //reset colorValue
     greenValue = 0;                                 //reset colorValue
     redValue = 0;                                   //reset colorValue
   }
   else {                                            //released button
-    delay(100);                                     //delay 100ms
-    digitalWrite(ledPin, LOW);                      //LED off
+    ;                                               //none
   }
-  delay(20);                                        //smoother delay
+  delay(100);                                       //smoother delay
 }                                                   //void loop close
-
-void setColor(int r, int g, int b) {                //void setColor open
-  analogWrite(redRGBPin,r);                         //set RGB color
-  analogWrite(greenRGBPin,g);                       //set RGB color
-  analogWrite(blueRGBPin,b);                        //set RGB color
-  delay(800);                                       //delay 800ms
-  analogWrite(redRGBPin,0);                         //reset RGB color
-  analogWrite(greenRGBPin,0);                       //reset RGB color
-  analogWrite(blueRGBPin,0);                        //reset RGB color
-}                                                   //void setColor close
 </code>
 </pre>
             
