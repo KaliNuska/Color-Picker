@@ -330,7 +330,7 @@
   http://kalinuska.github.io/Color-Picker/
 */
 
-#include <LiquidCrystal.h>
+#include \<LiquidCrystal.h\>
 
 /*
   Arduino's LiquidCrystal Library with SPI
@@ -351,7 +351,7 @@ String sR, sRn, sRnG, sRnGn, sRnGnB, sRnGnBn;       //string objects that contai
 
 void setup() {                                      //void setup open
   Serial.begin(9600);                               //begin serial communcation
-  lcd.begin(16, 2);                                 //begin lcd communication (columns & rows)
+  lcd.begin(16, 2);                                 //begin lcd communication (columns and rows)
   lcd.setCursor(2,0);                               //lcd cursor position
   lcd.print("Color Picker");                        //lcd message
   
